@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# PROVIDE: stund
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+#
+# stund_enable (bool): Set to YES to enable stund. Default: NO.
+# stund_pidfile (path): Supervisor PID file. Default: /var/run/stund.pid.
+
+. /etc/rc.subr
+
+name="stund"
+rcvar="stund_enable"
+
+load_rc_config ${name}
+
+: ${stund_enable:="NO"}
+: ${stund_pidfile:="/var/run/${name}.pid"}
+
+pidfile="${stund_pidfile}"
+command="/usr/sbin/daemon"
+required_files="%%PREFIX%%/sbin/${name}"
+command_args="-f -R 5 -P ${pidfile} -t ${name} %%PREFIX%%/sbin/${name}"
+
+run_rc_command "$1"

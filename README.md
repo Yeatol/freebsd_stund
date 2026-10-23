@@ -66,6 +66,7 @@ This installs the `stund` executable to `/usr/local/sbin/stund` and the
 The `stund.in` template is processed during the build to generate the rc.d
 service script, which is installed as part of `make install`. The generated
 script uses FreeBSD's `daemon(8)` utility to run and manage `stund` as a service.
+The service runs the `stund` process as the `nobody` user.
 Manage it using standard FreeBSD service controls such as:
 
 ```sh

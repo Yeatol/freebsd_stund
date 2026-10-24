@@ -1,5 +1,7 @@
 # stund
 
+[![FreeBSD port version](https://repology.org/badge/version-for-repo/freebsd/stund.svg)](https://www.freshports.org/net/stund/)
+
 Minimal STUN (RFC 8489) binding server for FreeBSD.
 
 ## Summary
